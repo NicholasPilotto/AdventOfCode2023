@@ -9,3 +9,4 @@ This repo contains the solution of the [Advent of Code 2023](https://adventofcod
 | 1 | &check; |
 | 2 | &check; |
 | 3 | &check; |
+| 4 | &check; |
