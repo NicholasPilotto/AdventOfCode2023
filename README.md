@@ -12,7 +12,7 @@ This repo contains the solution of the [Advent of Code 2023](https://adventofcod
 | 4 | &check; |
 | 5 | &check; |
 | 6 | &check; |
-| 7 | &#x2610; |
+| 7 | &check; |
 | 8 | &#x2610; |
 | 9 | &#x2610; |
 | 10 | &#x2610; |
