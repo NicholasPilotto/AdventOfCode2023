@@ -46,5 +46,19 @@ namespace helper {
     trim(s);
     return s;
   }
+
+  //split string
+  static inline std::vector<std::string> split_string(const std::string& s, char separator = ' ') {
+    std::stringstream ss{s};
+    std::string token;
+
+    std::vector<std::string> result;
+
+    while (getline(ss, token, separator)) {
+      result.push_back(token);
+    }
+
+    return result;
+  }
 }  //namespace helper
 }  //namespace npilotto
