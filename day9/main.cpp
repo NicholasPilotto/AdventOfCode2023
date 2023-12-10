@@ -25,20 +25,30 @@ using std::stringstream;
 using std::tuple;
 using std::vector;
 
-int getPrediction(const vector<int>& values) {
+bool areAllZeros(const vector<int>& test) {
+  for (const int v : test) {
+    if (v != 0) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+int getPrediction(vector<int> values) {
   int diff          = -1;
   int value         = 0;
   bool stop         = false;
   vector<int> diffs = values;
 
-  while (!stop) {
-    int toDelete = 0;
+  while (!areAllZeros(diffs)) {
+    int cut = 0;
     for (int i = 1; i < diffs.size(); ++i) {
       diffs[i - 1] = diffs[i] - diffs[i - 1];
-      toDelete     = i;
+      cut          = i;
     }
 
-    diffs = {diffs.begin(), diffs.begin() + toDelete};
+    diffs = {diffs.begin(), diffs.begin() + cut};
 
     if (diffs[diffs.size() - 1] == 0) {
       stop = true;
@@ -48,6 +58,11 @@ int getPrediction(const vector<int>& values) {
   }
 
   return values[values.size() - 1] + value;
+}
+
+int getPredictionReverse(vector<int> values) {
+  std::reverse(values.begin(), values.end());
+  return getPrediction(values);
 }
 
 int main(int argc, char** argv) {
@@ -64,6 +79,7 @@ int main(int argc, char** argv) {
   }
 
   vector<int> values;
+  vector<int> valuesReversed;
 
   vector<vector<int>> history;
 
@@ -79,16 +95,23 @@ int main(int argc, char** argv) {
     }
 
     values.emplace_back(getPrediction(history[index]));
+    valuesReversed.emplace_back(getPredictionReverse(history[index]));
     ++index;
   }
 
-  int sum = 0;
+  int sum         = 0;
+  int sumReversed = 0;
 
   for (const int value : values) {
     sum += value;
   }
 
+  for (const int value : valuesReversed) {
+    sumReversed += value;
+  }
+
   cout << "Part 1: " << sum << '\n';
+  cout << "Part 2: " << sumReversed << '\n';
 
   input.close();
   return 0;
