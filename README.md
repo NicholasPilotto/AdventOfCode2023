@@ -15,7 +15,7 @@ This repo contains the solution of the [Advent of Code 2023](https://adventofcod
 | 7 | &check; |
 | 8 | &check; |
 | 9 | &check; |
-| 10 | &#x2610; |
+| 10 | &check; |
 | 11 | &#x2610; |
 | 12 | &#x2610; |
 | 13 | &#x2610; |
