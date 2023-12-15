@@ -113,7 +113,7 @@ size_t part2(const records_t& records) {
     for (int j = 0; j < 4; ++j) {
       std::cout << j << ' ';
       unfolded_records[i].springs.append(std::string("?") + records[i].springs);
-      unfolded_records[i].groups.emplace_back(
+      unfolded_records[i].groups.insert(
         unfolded_records[i].groups.end(), records[i].groups.begin(), records[i].groups.end());
     }
   }
